@@ -382,7 +382,7 @@ The application shall remain usable on desktop hardware meeting the projec's def
 Common application interactions shall complete within timeframes that maintain a responsive user experience when operating on the defined reference hardware and workload.
 
 #### Acceptance Criteria
-- User interface actions shall provide visible feedback within 20 milliseconds.
+- User interface actions shall provide visible feedback within 200 milliseconds.
 - Searches against a vault containing 300 credentials shall return resukts within 500 milliseconds.
 - Navigation to credential and secure-note views shall complete within 1 second.
 - Normal credential and secure-note creation, editing, and deletion operations shall complete within 1 second.
