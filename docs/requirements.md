@@ -3,7 +3,6 @@
 ## Authentication
 
 ### AUTH-001: Master password creation
-
 #### Description:
 The system shall allow a user create an initial master password used to protect the credential vault.
 
@@ -17,7 +16,6 @@ Priority: Must Have
 
 
 ### AUTH-002: User authentication for vault access
-
 #### Description
 The system shall not allow vault access unless the user has successfully authenticated.
 
@@ -27,10 +25,9 @@ The system shall not allow vault access unless the user has successfully authent
 - Unsuccessful authentication atempts must not grant vault access.
 
 Priority: Must Have
-21
+
 
 ### AUTH-003: Vault re-secured after a period of inactivity
-
 #### Description
 The system shall automatically lock the vault after a period of inactivity.
 
@@ -42,9 +39,8 @@ The system shall automatically lock the vault after a period of inactivity.
 Priority: Must Have
 
 ### AUTH-004: User defined inactivity period
-1
 #### Description
-The system shall allow the user to define the period of inactivity before the vault automatically locks itself
+The system shall allow the user to define the period of inactivity before the vault automatically locks itself.
 
 #### Acceptance Criteria:
 - The user can configure the inactivity period before the vault automatically locks.
@@ -55,7 +51,6 @@ Priority: Nice to Have
 
 
 ### AUTH-005: Initial authentication setup
-
 #### Description
 The system shall guide the user through creating the initial authentication configuration when no valid vault exists.
 
@@ -68,7 +63,6 @@ Priority: Must Have
 
 
 ## Vault Management
-
 ### VAULT-001: Vault data secure at rest
 
 #### Description
@@ -81,20 +75,18 @@ Priority: Must Have
 
 
 ### VAULT-002: Vault export
-
 #### Description
  The system shall allow the user to export the vault to a portable file that can be imported by another instance of the application.
 
 #### Acceptance Criteria:
  - User can export the current vault.
  - The exported vault can be imported by another instance of the application.
- - The exported vault remains protected against unauthorised access
+ - The exported vault remains protected against unauthorised access.
  
 Priority: Should Have
 
 
 ### VAULT-003: Vault import
-
 #### Description
 The system shall allow the user to import a vault previously exported by the application.
 
@@ -105,8 +97,8 @@ The system shall allow the user to import a vault previously exported by the app
 
 Priority: Should Have
 
-### VAULT-004: Vault integrity validation
 
+### VAULT-004: Vault integrity validation
 #### Description
 The system shall detect when a vault cannot be verified as valid.
 
@@ -116,3 +108,115 @@ The system shall detect when a vault cannot be verified as valid.
 - The system shall inform the user of an invalid vault that requires recovery, restoration, or replacement.
 
 Priority: Must Have
+
+
+## Credential Management
+
+### CRED-001: Credential creation
+#### Description
+The system shall allow the user to create username:password pair credentials
+
+#### Acceptance Criteria
+- The user can enter into the system a username:password which is then stored in the vault.
+- If the proposed username:password pair already exists in the vault, the user is notified and a duplicate is not stored.
+
+Priority: Must Have
+
+
+### CRED-002: Credential retrieval
+#### Description
+The system shall allow the user to select a stored username:password pair for use.
+
+#### Acceptance Criteria
+- Once the username:password pair has been selected by the user, the system shall recover the original password and hand it over to the user.
+
+Priority: Must Have
+
+
+### CRED-003: Credential editing
+#### Description
+The system shall allow the user to change the information of a username:password pair that is already stored in the vault
+
+#### Acceptance Criteria
+- The user can select an already existing username:password pair, then change either or both of these details with the new changes stored in the vault and the old details discarded.
+- The user cannot change a credentail pair to be the same as an already existing credential pair. If this happens, the user is notified and the original data is maintained with no changes.
+
+Priotity: Must Have
+
+
+### CRED-004: Credential deletion
+#### Description
+The system shall allow the user to delete an already stored username:password pair.
+
+#### Acceptance Criteria
+- The system shall allow the user to elect a selected username:passwowd pair to be deleted.
+- The deleted username:password pair shall remain protected against unauthorised access.
+
+Priority: Must Have
+
+
+### CRED-005: Credential searching
+#### Description
+The system shall allow the user to enter a username, the system shall then search the vault for username:password pairs that contain the supplied username and display them to the user.
+
+#### Acceptance Criteria
+- The system displays all credential pairs containing the supplied username to the user.
+- The system does not display any credential pairs that do not contain the supplied username.
+- The system will notify the user if there are no credentials stored in the vault with the supplied username.
+
+Priority: Should Have
+
+
+## Password Assistance
+
+### PASS-01: Secure password suggestion
+#### Description
+The system shall suggest to the user a password that meets a pre-determined security standard.
+
+#### Acceptance Criteria
+- A password that meets the pre-defined security standard is generated when requested by the user.
+- The system shall not suggest a password that is already in use by a credential already stored in the vault
+- The suggested password shall not violate any of the pre-determined security standard rules.
+
+Priority: Must Have
+
+
+### PASS-02: Password suitability evaluation
+#### Description
+The system shall evaluate user defined passwords for their suitability as passwords.
+
+#### Acceptance Criteria
+- A user defined password is evaluated against pre-determined security standard rules. 
+- The user is notified if a supplied password meets the system's standard rules or not.
+- A user supplied password is stored even if it does not meet the pre-defined security standard rules.
+
+Priority: Must Have
+
+### PASS-03: User defined password security standard rules
+#### Description
+The system shall allow the user to define the security standard rules by which new passwords should be evaluated and generated.
+
+#### Acceptance Criteria
+- User defined security standard rules shall be saved and persist between application boot ups.
+- Passwords shall be generated to the latest defined security standard rules.
+- Passwords shall be evaluated to the latest defined security standard rules.
+- Passwords shall not be generated to outdated defined security standard rules.
+- Passwords shall not be evaluated to outdated defined security standard rules.
+- If user defined security standard rules cannot be found, the system shall default to the pre-defined ruleset.
+
+Priority: Nice to Have
+
+
+## Notes Management
+
+
+## Security (Non-Functional)
+
+
+## Maintainability
+
+
+## Performance
+
+
+## Extensibility
