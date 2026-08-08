@@ -338,6 +338,31 @@ The system shall minimise exposure of the user's authentication secrets during t
 
 ## Maintainability
 
+### MAIN-001: Modular extensible codebase
+#### Description
+The code base shall be structured so that individual areas of functionality can be modified or extended with minimal impact on the rest of the application.
+
+#### Acceptance Criteria
+- Application components shall have clearly defined responsibilities.
+- Changes to one area of functionality shall not require changes to other unrelated application components.
+- New functionality shall be capable of introduction through extension or addition to relevant components, without requiring modification to unrelated application components.
+- Dependencies between components shall be explicit and limited to those required for their responsibilities.
+
+**Priority:** Must Have
+
+### MAIN-002: Automated unit testing
+#### Description
+The codebase shall be supported by automated unit tests that validate expected behaviour adn help detect regressions through the development process.
+
+#### Acceptance Criteria
+- New or modified testable functionality shall be accompanied by appropriate unit tests.
+- Unit test shall validate both expected behaviour and relevant failure conditions where applicable.
+- Existing automated tests shall continue to pass unless intentional requirement changes alter the expected behaviour.
+- When expected behaviour changed intentionally, the affected tests shall be updated to reflect the changed requirements.
+- The project's unit test suite shall be executable as a single automated test run.
+
+**Priority:** Must Have
+
 
 ## Performance
 
