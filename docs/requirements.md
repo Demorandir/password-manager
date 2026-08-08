@@ -70,8 +70,8 @@ The system shall allow the user to create a new vault.
 
 #### Acceptance Criteria:
 - When no vault has previously been configured, the system shall allow the user to either create a new vault or import a vault.
-- When create a new vault is chosen, the system shall guide the user through the required initial authentication setup.
-- Only once the initial authentication setup has been successfully completed shall a new protected vault be created.
+- When the user chooses to create a new vault, the system shall guide the user through the required initial authentication setup.
+- A new protected vault shall only be created after the initial authentication setup has been successfully completed.
 
 **Priority:** Must Have
 
@@ -250,15 +250,88 @@ The system shall allow users to delete existing secure notes.
 
 **Priority:** Must Have
 
+## Audit
+
+### AUD-001: Record auditable vault data actions
+#### Description
+The system shall maintain an audit trail of significant actions performed against vault data.
+
+#### Acceptance Criteria
+- The system shall record whenever a credential is created, edited, or deleted.
+- The system shall record whenever a secure note is created, edited, or deleted.
+- Each audit entry shall record the time and date in which the action occured.
+- Each audit entry shall identify type of action performed.
+- Each audit entry shall identify the type of data entity affected.
+- Each audit entry shall identify the vault associated with the affected data.
+- Each audit entry shall record whether the attempted action was completed successfully or failed.
+
+**Priority** Should Have
+
+### AUD-002: Record auditable system events
+#### Description
+The system shall maintain an audit trail of significant application events affecting the vault or its security state.
+
+#### Acceptance Criteria
+- The system shall record significant authentication events.
+- The system shall record significant vault state changes, including locking and unlocking.
+- The system shall record vault import and export events.
+- The system shall record vault integrity failures.
+- Each audit entry shall record the date and time at which the event occurred.
+- Each audit entry shall record the tpye of event that occurred.
+- Each audit entry shall record the outcome of the event when outcomes are applicable.
+
+**Priority:** Should Have
+
 
 ## Security (Non-Functional)
 
 ### SEC-001: Protection of sensitive data at rest
 #### Description
-Any data stored by the vault must be protected against attackers while not in use.
+The system shall protect sensitive vault data against disclosure while the data is at rest.
 
 #### Acceptance Criteria:
-- The system shall protect stored vault data against unauthorised access if the vault storage is obtained by an attacker.
+- An attacker obtaining a copy of the vault shall not gain access to protected credential or secure-note contents solely by possessing a copy of that vault.
+- Sensitive vault contents shall remain protected while the applciation is closed.
+- Access to protected vault contents shall require successful authentication.
+- Exported vault data shall provide the same level of protection against unauthorised disclosure.
+
+**Priority:** Must Have
+
+
+### SEC-002: Protection of audit information
+#### Description
+The system shall prevent audit record from exposing sensitive vault or authentication data.
+
+#### Acceptance Criteria:
+- Audit records shall not contain plaintext passwords.
+- Audit records shall not contain secure-note contents.
+- Audit records shall not contain the master password or other authentication secrets.
+- Audit records shall be protected against unauthorised access.
+
+**Priority:** Must Have
+
+
+### SEC-003: Protection of sensitive data in application logging
+#### Description
+The system shall prevent diagnostic and application logging from exposing any sensitive vault or authentication data.
+
+#### Acceptance Criteria
+- Application logs shall not contain plaintext passwords
+- Application logs shall not contian secure-note contents.
+- Application logs shall not contain the master password or other authentication secrets.
+- Error and exception handling and reporting shall not expose sensitive vault contents.
+
+**Priority:** Must Have
+
+
+### SEC-004: Protection of user's authentication secrets
+#### Description
+The system shall minimise exposure of the user's authentication secrets during the authentication process, and shall not persist those secrets in their original form.
+
+#### Acceptance Criteria
+- Authentication secrets entered by the user shall be masked by default during entry.
+- The original authentication secret shall not be written to persistent storage.
+- Authentication secrets shall not remain accessible to the application longer than required for authentication.
 
 **Priority:** Must Have
 
