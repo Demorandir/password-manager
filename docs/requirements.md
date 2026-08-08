@@ -390,9 +390,3 @@ Common application interactions shall complete within timeframes that maintain a
 - Operations exeeding 1 second shall provide appropriate feedback indicating that the process is taking place.
 
 **Priority:** Should Have
-
-#### Acceptance Criteria
-- Opening an already unlocked credential shall complete within 
-
-
-## Extensibility
