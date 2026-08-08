@@ -209,6 +209,45 @@ Priority: Nice to Have
 
 ## Notes Management
 
+### NOTE-001: Create secure notes
+#### Description
+The system shall allow users to create text notes that will be stored in the vault.
+
+#### Acceptance Criteria
+- User created text notes will be stored in the vault.
+- The system shall protect stored notes data against unauthorised access if the vault storage is obtained by an attacker.
+
+### NOTE-002: Retrieve stored secure notes
+#### Description
+The system shall allow users to select and view the contents of a secure note.
+
+#### Acceptance Criteria
+- A selected secure note shall be recovered and displayed to the user.
+
+Priority: Must Have
+
+
+### NOTE-003: Edit existing secure notes
+#### Description
+The system shall allow users to update and change the contents of a secure note.
+
+#### Acceptance Criteria
+- Changes made to a secure note shall be saved in the vault.
+- The previous versions of the secure note shall no longer be accessable.
+- The user shall be notified if the update to the secure note was successful or not.
+
+Priority: Must Have
+
+### NOTE-004: Deletion of existing secure notes
+#### Description
+The system shall allow users to delete existing secure notes.
+
+#### Acceptance Criteria
+- The system shall allow the user to elect a selected secure note to be deleted.
+- The deleted secuer note shall remain protected against unauthorised access.
+
+Priority: Must Have
+
 
 ## Security (Non-Functional)
 
