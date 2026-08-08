@@ -366,5 +366,33 @@ The codebase shall be supported by automated unit tests that validate expected b
 
 ## Performance
 
+### PERF-001: Operation on low-resource desktop hardware
+#### Description
+The application shall remain usable on desktop hardware meeting the projec's defined minimum reference specification.
+
+#### Acceptance Criteria
+- The application shall start successfully on the minimum reference hardware.
+- The application shall not require dedicated graphics hardware.
+- The application shall operate without exhausting available system memory under normal expected vault sizes.
+
+**Priority:** Must Have
+
+### PERF-002: Application responsiveness
+#### Description
+Common application interactions shall complete within timeframes that maintain a responsive user experience when operating on the defined reference hardware and workload.
+
+#### Acceptance Criteria
+- User interface actions shall provide visible feedback within 20 milliseconds.
+- Searches against a vault containing 300 credentials shall return resukts within 500 milliseconds.
+- Navigation to credential and secure-note views shall complete within 1 second.
+- Normal credential and secure-note creation, editing, and deletion operations shall complete within 1 second.
+- Application startup shall present a useable interface within 3 seconds.
+- Operations exeeding 1 second shall provide appropriate feedback indicating that the process is taking place.
+
+**Priority:** Should Have
+
+#### Acceptance Criteria
+- Opening an already unlocked credential shall complete within 
+
 
 ## Extensibility
