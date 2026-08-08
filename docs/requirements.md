@@ -63,13 +63,15 @@ The system shall guide the user through creating the initial authentication conf
 
 
 ## Vault Management
-### VAULT-001: Vault data protection at rest
 
+### VAULT-001: Vault creation
 #### Description
-Any data stored by the vault must be protected against attackers while not in use.
+The system shall allow the user to create a new vault.
 
 #### Acceptance Criteria:
-- The system shall protect stored vault data against unauthorised access if the vault storage is obtained by an attacker.
+- When no vault has previously been configured, the system shall allow the user to either create a new vault or import a vault.
+- When create a new vault is chosen, the system shall guide the user through the required initial authentication setup.
+- Only once the initial authentication setup has been successfully completed shall a new protected vault be created.
 
 **Priority:** Must Have
 
@@ -250,6 +252,15 @@ The system shall allow users to delete existing secure notes.
 
 
 ## Security (Non-Functional)
+
+### SEC-001: Protection of sensitive data at rest
+#### Description
+Any data stored by the vault must be protected against attackers while not in use.
+
+#### Acceptance Criteria:
+- The system shall protect stored vault data against unauthorised access if the vault storage is obtained by an attacker.
+
+**Priority:** Must Have
 
 
 ## Maintainability
