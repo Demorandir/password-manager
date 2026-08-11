@@ -2,7 +2,40 @@
 
 ## Purpose
 
-## Sysetm Scope
+## System Scope
+
+The system consists of a locally operated desktop password manager application that shall store and manage a single user's sensitive information, primarily password-based credentials and secure notes.
+
+**The system includes:**
+- User authentication and vault unlocking.
+- Creation and management of one or more independent local vaults.
+- Storage, retrieval, and management of credentials and secure notes.
+- Password generation and suitability evaluation.
+- Vault import and export.
+- Automatic vault locking.
+- Audit and diagnostic logging.
+
+**The system excludes:**
+- Passkey management.
+- Cloud synchronisation.
+- Browser extensions.
+- Mobile applications.
+- Hardware security-key integration.
+
+**External entities and interfaces:**
+- The user.
+- The host operating system and filesystem.
+- Imported vault files entering the application.
+- Exported vault files leaving the application.
+
+**System states considered:**
+- Application not running.
+- Application running with no vault configured.
+- Application running with an unavailable or invalid vault.
+- Application running with a locked vault.
+- Authentication in progress.
+- Application running with an unlocked vault.
+- Vault import and export in progress.
 
 ## Assets
 
