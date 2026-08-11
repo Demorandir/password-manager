@@ -468,6 +468,63 @@ None formally considered
 This decision establishes an architectural principle without prescribing any specific patterns or component boundaries before the architecture phase.
 
 
+## DEC-025: Each vault will support a single user
+**Status:** Accepted
+**Date:** 11/08/2026
+
+### Context
+A decision was required regarding whether an individual vault should support access by multiple users.
+
+### Decision
+Each vault will support a single user and a single associated authentication context. A single user may create or use multiple separate vaults.
+
+Multi-user vault access will not be supported within the scope of this project but may be considered as a future feature.
+
+### Rationale
+Supporting multiple users within a single vault would introduce additional authentication, authorisation, access-control, and data ownership requirements.
+
+Restricting each vault to a single user keeps the security model and project scope manageable while still allowing users to maintain separate vaults for different contexts.
+
+### Alternatives Considered
+Multiple users sharing a single vault.
+Multiple users with different permissions within a vault.
+Restricting each user to a single vault.
+
+### Consequences
+The application will not need to implement per-user authorisation or permissions within a vault.
+
+A vault cannot be shared between multiple users while maintaining separate identities or permissions.
+
+Authentication and vault-unlocking functionality can assume a single-user security context.
+
+A single user may maintain multiple independent vaults.
+
+
+## DEC-026: Treat the host operating system as a trusted platform
+**Status:** Accepted
+**Date:** 11/08/2026
+
+### Context
+The password manager depends on the host operating system for process isolation, memory management, filesystem access, user input, and other runtime services.
+
+A decision was required regarding whether the threat model should attempt to defend against a maliciously compromised host operating system.
+
+### Decision
+The application will assume that the host operating system is not maliciously compromised and that its normal security mechanisms are operating as intended.
+
+A fully compromised host operating system will be treated as outside the security guarantees of the application.
+
+### Rationale
+The security of the host operating environment is outside the application's direct control. A fully compromised operating system can undermine protections implemented by the application; therefore, defending against a fully compromised host operating system is outside the scope of this threat model.
+
+### Alternatives Considered
+Treat the host operating system as potentially malicious or fully compromised.
+
+### Consequences
+If the host operating system is compromised, the confidentiality, integrity, and availability guarantees provided by the password manager may no longer hold.
+
+The application should still validate external inputs and handle potentially corrupted or malicious data even when operating on a trusted host operating system.
+
 
 ## DEC-xxx:
 **Status:**
