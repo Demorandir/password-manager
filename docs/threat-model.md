@@ -1,6 +1,13 @@
 # Threat Model
 
 ## Purpose
+The purpose of this threat model is to identify and evaluate relevant security threats to the password manager and the sensitive information it processes.
+
+This document will catalogue the assets that require protection, the security assumptions and boundaries under which the system will operate, the threat actors considered and their capabilities, and the potential attack surfaces and threat scenarios affecting the system.
+
+This document will be used to inform and refine security requirements, and guide architectural decisions, implementation choices, and testing throughout development.
+
+This document is intended to be a living security artefact that may be updated as the system architecture and implementation introduce new security-relevant context.
 
 ## System Scope
 
@@ -167,6 +174,8 @@ Third-party dependencies are not assumed to be free from security vulnerabilitie
 Defending against malicious replacement or modification of the application, its runtime, or its dependencies is outside the security guarantees of the application. This is because compromised executable code could bypass or alter security controls implemented by the system.
 
 This trust does not extend to data processed by the application. Vault files and other external data shall not be assumed to have integrity by virtue of being accessed or parsed by the application.
+
+## Threat Actors and Capabilities
 
 ## Attack Surfaces
 
