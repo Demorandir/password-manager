@@ -17,7 +17,7 @@ Python 3.x will be used as the primary implementation language
 I have previous Python experience which will speed up development time and effort. This will allow more time spent on software engineering, security, and architecture.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
 - Access to the Python ecosystem and standard library
@@ -37,10 +37,10 @@ Tkinter will be used for the GUI.
 Tkinter is a lightweight framework that is included with Python.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-Some time will need to be spent familiarising with this framework.
+- Some time will need to be spent familiarising with this framework.
 
 
 ## DEC-003: Use SQLite for local persistence
@@ -56,10 +56,10 @@ SQLite will be used as a backend database
 SQLite is appropriate for a standalone desktop application. It is lightweight and does not require any external database services.
 
 ### Alternatives Considered
-MySQL
+- MySQL
 
 ### Consequences
-Some time will need to be spent re-familiarising myself with SQL and database architecture.
+- Some time will need to be spent re-familiarising myself with SQL and database architecture.
 
 
 ## DEC-004: Use pytest for automated testing
@@ -75,10 +75,10 @@ pytest will be used for automated unit testing
 pytest is a Python-native testing framework that is compatible with the intended TDD/unit testing workflow.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-Some time will need to be spent familiarising myself with the pytest framework.
+- Some time will need to be spent familiarising myself with the pytest framework.
 
 
 ## DEC-005: Use Git/GitHub for version control
@@ -94,10 +94,10 @@ Git/GitHub will be used as the version control.
 Provides revision history and allows the development process to be demonstrated to potential employers.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-Development practices must include regular commits/pushes and repository hygiene.
+- Development practices must include regular commits/pushes and repository hygiene.
 
 
 ## DEC-006: Use VS Code for development environment
@@ -113,11 +113,11 @@ VS Code will be used as the development environment.
 VS Code has integration for Python, Markdown, Git and terminal workflows in a single environment.
 
 ### Alternatives Considered
-PyCharm
-Eclipse
+- PyCharm
+- Eclipse
 
 ### Consequences
-Project setup may include editor specific local configuration, which should not become a dependency for building/running the application.
+- Project setup may include editor specific local configuration, which should not become a dependency for building/running the application.
 
 
 ## DEC-007: Use project-local .venv virtual environment
@@ -133,10 +133,10 @@ A local virtual environment will be used inside VS Code for code development.
 This will keep dependencies isolated to the project and help ensure reproducible setup.
 
 ### Alternatives Considered
-Use system Python installation
+- Use system Python installation
 
 ### Consequences
-Ensure .gitignore updated to exclude virtual environment files that will be created.
+- Ensure .gitignore updated to exclude virtual environment files that will be created.
 
 
 ## DEC-008: Make the project repo public
@@ -155,8 +155,8 @@ The project is intended as a portfolio piece whose code, tests, documentation an
 Private visibility.
 
 ### Consequences
-It is important that any sensitive information and test data containing sensitive information is kept from being exposed in the public repository.
-A well-crafted .gitignore is paramount.
+- It is important that any sensitive information and test data containing sensitive information is kept from being exposed in the public repository.
+- A well-crafted .gitignore is paramount.
 
 
 ## DEC-009: Release project under MIT License
@@ -172,10 +172,10 @@ Release project under MIT License
 MIT License is a simple, permissive and widely recognised open-source license that is appropriate for a portfolio project.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-Third parties may reuse, modify, and redistribute the software subject to the license terms.
+- Third parties may reuse, modify, and redistribute the software subject to the license terms.
 
 
 ## DEC-010: Limit initial credential type to password-based credentials
@@ -191,13 +191,12 @@ The initial project will support password-based credentials containing an accoun
 This will keep the project achievable within a reasonable timeframe while leaving the possibility of supporting additional credential types in future versions.
 
 ### Alternatives Considered
-Passkeys
-WebAuthn/hardware-backed credentials
+- Passkeys
+- WebAuthn/hardware-backed credentials
 
 ### Consequences
-This will limit the functionality of project's initial release. However it will make the project more manageable in terms of scope and time to completion.
-
-The system should be designed with future credential types in mind without implementing support for them prematurely.
+- This will limit the functionality of project's initial release. However it will make the project more manageable in terms of scope and time to completion.
+- The system should be designed with future credential types in mind without implementing support for them prematurely.
 
 
 ## DEC-011: Scope Boundaries
@@ -213,10 +212,10 @@ Exclude passkeys, Webauthn, hardware keys, cloud synchronisation, browser integr
 This will keep the project scope manageable, prevent scope creep, and allow the project to be completed in a reasonable timeframe.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-Limitations to feature development
+- Limitations to feature development
 
 
 ## DEC-012: Add secure notes as a data type
@@ -232,10 +231,10 @@ Secure notes will be an included sensitive-data type the vault can store.
 This functionality is both useful and tests the code's extensibility beyond just username:password credentials without greatly expanding the project scope.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-Project architecture and security considerations will need to cover this proposed functionality.
+- Project architecture and security considerations will need to cover this proposed functionality.
 
 
 ## DEC-013: Minimum Viable Product approach
@@ -251,10 +250,10 @@ An MVP version of the project has been decided with later versions building on t
 This will prioritise completion of a small core system before adding additional functionality and quality of life updates.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-The project will use an iterative and incremental delivery approach, with each version building on the previous milestone.
+- The project will use an iterative and incremental delivery approach, with each version building on the previous milestone.
 
 
 ## DEC-014: Continuous development strategy
@@ -270,10 +269,10 @@ Testing and documentation will be treated as continuous development activities.
 This will reduce the risk of system regression and will keep documentation aligned with implementation.
 
 ### Alternatives Considered
-Treat testing and documentation as final milestones
+- Treat testing and documentation as final milestones
 
 ### Consequences
-Testing and documentation will become living artifacts that will need regularly updating throughout the project.
+- Testing and documentation will become living artifacts that will need regularly updating throughout the project.
 
 
 ## DEC-015: Separate the original project proposal
@@ -289,10 +288,10 @@ Keep the proposal as it forms a solid foundation for the project; create the liv
 This will make use of work already carried out in the proposal whilst creating a better document structure to facilitate DEC-014.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-Some time will be required to create the new document structure and transpose the work carried out in the project proposal.
+- Some time will be required to create the new document structure and transpose the work carried out in the project proposal.
 
 
 ## DEC-016: Separate requirements from implementation decisions
@@ -308,10 +307,10 @@ Keep a clear separation between these concepts when planning for the project.
 Requirements describe security and environmental restrictions, and behaviours; architecture and design documents describe how these will be achieved.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-Care has to be taken when filling out the requirements document to ensure that it does not imply or take on an implementation approach.
+- Care has to be taken when filling out the requirements document to ensure that it does not imply or take on an implementation approach.
 
 
 ## DEC-017: Separate functional requirements for vault import and export
@@ -328,10 +327,10 @@ Although they are both involved with the same functional area of the application
 Keeping them separated makes testing clearer as they are both separate failure points.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-This will shape some implementation and code design choices during those planning phases.
+- This will shape some implementation and code design choices during those planning phases.
 
 
 ## DEC-018: Categorise protection of vault data at rest as a non-functional security requirement.
@@ -347,10 +346,10 @@ Move this requirement to non-functional security.
 This is a security quality/property of the vault rather than an operational function.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-Slight change to the requirements document. This may change what/how some tests are written during code development.
+- Slight change to the requirements document. This may change what/how some tests are written during code development.
 
 
 ## DEC-019: Separate audit logging from diagnostic/application logging
@@ -366,10 +365,10 @@ Separate these two logs.
 Audit records describe significant user/system actions, while diagnostic logs describe application behaviour and failures. They have different purposes that have different security considerations.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-This will affect some implementation and design choices at that stage of the project.
+- This will affect some implementation and design choices at that stage of the project.
 
 
 ## DEC-020: Do not reject passwords that fail suitability checks
@@ -385,10 +384,10 @@ The rules should only be suggestions.
 Password strength functionality should provide guidance rather than prevent users from storing the credentials they choose. Strict adherence could also cause issues if the user migrating to this system has previous passwords that violate any of the defined rules.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-This will have an impact on the system's design/implementation when at that stage of the project.
+- This will have an impact on the system's design/implementation when at that stage of the project.
 
 
 ## DEC-021: Automatic vault locking is mandatory.
@@ -404,10 +403,10 @@ Automatic vault locking will be mandatory. A user-configurable inactivity timout
 This is a baseline level of security.
 
 ### Alternatives Considered
-None formally considered.
+- None formally considered.
 
 ### Consequences
-This will shape some of the system design choices.
+- This will shape some of the system design choices.
 
 
 ## DEC-022: The performance test vault will contain 300 credentials
@@ -423,10 +422,10 @@ The vault will have 300 credentials.
 This will be representative of a conservative above-average workload, this is not intended as an arbitrary maximum credential count.
 
 ### Alternatives Considered
-Possibly running tests with a 1,000 credential vault in parallel as a stress test.
+- Possibly running tests with a 1,000 credential vault in parallel as a stress test.
 
 ### Consequences
-A vault containing 300 test credentials will need to be generated and stored for testing purposes.
+- A vault containing 300 test credentials will need to be generated and stored for testing purposes.
 
 
 ## DEC-023: Use defined reference workload and hardware
@@ -442,11 +441,11 @@ To carry out performance tests the project will use a defined hardware and workl
 This makes the requirements measurable and defensible rather than using vague metrics like 'low-end hardware'.
 
 ### Alternatives Considered
-subjective metrics.
-qualitative metrics.
+- Subjective metrics.
+- Qualitative metrics.
 
 ### Consequences
-Suitable metrics will need to be decided upon with concrete rationale.
+- Suitable metrics will need to be decided upon with concrete rationale.
 
 
 ## DEC-024: Keep system architecture modular and decoupled.
@@ -462,10 +461,10 @@ Make sure the codebase's architecture is modular and realistically decoupled.
 This decision will help shape the architectural decision making without prescribing any specific design choices at this stage.
 
 ### Alternatives Considered
-None formally considered
+- None formally considered
 
 ### Consequences
-This decision establishes an architectural principle without prescribing any specific patterns or component boundaries before the architecture phase.
+- This decision establishes an architectural principle without prescribing any specific patterns or component boundaries before the architecture phase.
 
 
 ## DEC-025: Each vault will support a single user
@@ -486,18 +485,15 @@ Supporting multiple users within a single vault would introduce additional authe
 Restricting each vault to a single user keeps the security model and project scope manageable while still allowing users to maintain separate vaults for different contexts.
 
 ### Alternatives Considered
-Multiple users sharing a single vault.
-Multiple users with different permissions within a vault.
-Restricting each user to a single vault.
+- Multiple users sharing a single vault.
+- Multiple users with different permissions within a vault.
+- Restricting each user to a single vault.
 
 ### Consequences
-The application will not need to implement per-user authorisation or permissions within a vault.
-
-A vault cannot be shared between multiple users while maintaining separate identities or permissions.
-
-Authentication and vault-unlocking functionality can assume a single-user security context.
-
-A single user may maintain multiple independent vaults.
+- The application will not need to implement per-user authorisation or permissions within a vault.
+- A vault cannot be shared between multiple users while maintaining separate identities or permissions.
+- Authentication and vault-unlocking functionality can assume a single-user security context.
+- A single user may maintain multiple independent vaults.
 
 
 ## DEC-026: Treat the host operating system as a trusted platform
@@ -518,12 +514,11 @@ A fully compromised host operating system will be treated as outside the securit
 The security of the host operating environment is outside the application's direct control. A fully compromised operating system can undermine protections implemented by the application; therefore, defending against a fully compromised host operating system is outside the scope of this threat model.
 
 ### Alternatives Considered
-Treat the host operating system as potentially malicious or fully compromised.
+- Treat the host operating system as potentially malicious or fully compromised.
 
 ### Consequences
-If the host operating system is compromised, the confidentiality, integrity, and availability guarantees provided by the password manager may no longer hold.
-
-The application should still validate external inputs and handle potentially corrupted or malicious data even when operating on a trusted host operating system.
+- If the host operating system is compromised, the confidentiality, integrity, and availability guarantees provided by the password manager may no longer hold.
+- The application should still validate external inputs and handle potentially corrupted or malicious data even when operating on a trusted host operating system.
 
 
 ## DEC-027: Trust host hardware and firmware
@@ -544,14 +539,12 @@ Compromised host hardware and firmware will be treated as outside the security g
 The security of the host hardware and firmware is outside the application's direct control. The system requires a trusted execution foundation and cannot realistically establish security guarantees against malicious hardware and firmware controlling that foundation. Therefore, defending against such attacks is outside the scope of this threat model.
 
 ### Alternatives Considered
-Treat the host hardware and firmware as potentially malicious or fully compromised.
+- Treat the host hardware and firmware as potentially malicious or fully compromised.
 
 ### Consequences
-If the host hardware and firmware is compromised, the confidentiality, integrity, and availability guarantees provided by the password manager may no longer hold.
-
-This constraint does not consider stolen or copied storage data as out of scope.
-
-The application should still validate inputs and handle potentially corrupted or malicious data even when operating within a trusted host environment.
+- If the host hardware and firmware is compromised, the confidentiality, integrity, and availability guarantees provided by the password manager may no longer hold.
+- This constraint does not consider stolen or copied storage data as out of scope.
+- The application should still validate inputs and handle potentially corrupted or malicious data even when operating within a trusted host environment.
 
 
 ## DEC-028: Exclude malicious local software/processes from threat model
@@ -574,12 +567,11 @@ However, data entering through application interfaces will remain untrusted.
 The behaviours of other software and processes are outside the application's direct control. Software executing with sufficient access to observe, modify, or interfere with the application's runtime could bypass protections from outside the application's own control boundary. Requiring the application to remain secure within an actively hostile local execution environment would therefore substantially expand the system's security model and is outside the scope of this threat model.
 
 ### Alternatives Considered
-Treat the executing environment as shared by hostile software/processes.
+- Treat the executing environment as shared by hostile software/processes.
 
 ### Consequences
-If there are maliciously acting software/processes executing in the same environment, the confidentiality, integrity, and availability guarantees provided by the password manager may no longer hold.
-
-This constraint does not consider malicious or corrupted data entering through defined application interfaces, including vault import functionality, to be out of scope.
+- If there are maliciously acting software/processes executing in the same environment, the confidentiality, integrity, and availability guarantees provided by the password manager may no longer hold.
+- This constraint does not consider malicious or corrupted data entering through defined application interfaces, including vault import functionality, to be out of scope.
 
 
 ## DEC-029: Trust application/runtime/dependency integrity
@@ -610,16 +602,13 @@ Therefore, malicious compromise of the trusted execution foundation will be trea
 This does not rule out the implementation of integrity or authenticity checks as a defence-in-depth measure to detect modification before a session is launched. Such measures would reduce reliance on this assumption but would not remove the need for an underlying trusted foundation.
 
 ### Alternatives Considered
-Treat application code, the runtime, and dependencies as potentially maliciously modified or replaced.
+- Treat application code, the runtime, and dependencies as potentially maliciously modified or replaced.
 
 ### Consequences
-Security guarantees depend on the application executing with an authentic and untampered application codebase, runtime, and set of intended dependencies.
-
-Malicious replacement or modification of these components will not be treated as an attack the application must defend against.
-
-Known or subsequently discovered vulnerabilities within authentic dependencies are considered a relevant security concern and may require dependency updates or other mitigations.
-
-Data processed by trusted application components are not inherently trusted and will still be treated according to the threat model's input and integrity assumptions.
+- Security guarantees depend on the application executing with an authentic and untampered application codebase, runtime, and set of intended dependencies.
+- Malicious replacement or modification of these components will not be treated as an attack the application must defend against.
+- Known or subsequently discovered vulnerabilities within authentic dependencies are considered a relevant security concern and may require dependency updates or other mitigations.
+- Data processed by trusted application components are not inherently trusted and will still be treated according to the threat model's input and integrity assumptions.
 
 
 
