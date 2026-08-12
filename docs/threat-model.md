@@ -175,7 +175,40 @@ Defending against malicious replacement or modification of the application, its 
 
 This trust does not extend to data processed by the application. Vault files and other external data shall not be assumed to have integrity by virtue of being accessed or parsed by the application.
 
+### Publicly Known Application Information
+The design and implementation of the application are not assume to be a secret. Threat actors may inspec the publicly visible version-control repository, including source code and project documentation.
+
+The security of the system must therefore not rely on secrecy of its design or implementation.
+
 ## Threat Actors and Capabilities
+
+### Local Person with Physical Access
+#### Motivation
+#### Capabilities
+#### Access Level
+#### Limitations
+
+
+### Opportunistic Attacker with Access to a Vault Copy
+#### Motivation
+#### Capabilities
+#### Access Level
+#### Limitations
+
+
+### Remote Attacker Interacting with the User Without Host Access
+#### Motivation
+#### Capabilities
+#### Access Level
+#### Limitations
+
+
+### 
+#### Motivation
+#### Capabilities
+#### Access Level
+
+
 
 ## Attack Surfaces
 
