@@ -210,8 +210,21 @@ The security of the system must therefore not rely on secrecy of its design or i
 
 ### Opportunistic Attacker with Access to a Vault Copy
 #### Capabilities
+- Can retain, copy, inspect, and modify the acquired vault file.
+- Can perform repeated offline analysis or attack attempts without the constraints of the application controls or authentication rate limits.
+- Can use computing hardware, software tools, and storage under their own control.
+- Can inspect publicly available application source code and documentation, and may understand the vault format and protection mechanisms used by the application.
+- Can use the publicly available application to create arbitrary vaults containing attacker-selected data for comparison and analysis against the acquired protected vault.
+- Can generate and repeatedly test arbitrary candidate authentication secrets against the acquired protected vault using publicly known application behaviours, formats, and security mechanisms.
+
 #### Access Level / Preconditions
+- Attacker has obtained a copy of a protected vault or protected vault export.
+- Attacker does not have access to an authenticated application session.
+- Attacker does not initially possess the user's authentication secrets.
+
 #### Limitations
+- Attacker does not control the user's trusted host environment or the application executing within it.
+- Possession of the protected vault does not initially provide the attacker with its decrypted contents or the user's authentication secrets.
 
 
 ### Remote Attacker Interacting with the User Without Host Access
