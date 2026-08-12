@@ -526,6 +526,103 @@ If the host operating system is compromised, the confidentiality, integrity, and
 The application should still validate external inputs and handle potentially corrupted or malicious data even when operating on a trusted host operating system.
 
 
+## DEC-027: Trust host hardware and firmware
+**Status:** Accepted
+**Date:** 12/08/2026
+
+### Context
+The password manager depends on the host hardware and firmware for a working environment on which it is to operate.
+
+A decision was required regarding whether the threat model should attempt to defend against malicious modification of or tampering with the host hardware or firmware.
+
+### Decision
+The system will assume that the host hardware and firmware is not maliciously compromised and that the host hardware and firmware are assumed to opeate as intended.
+
+Compromised host hardware and firmware will be treated as outside the security guarantees of the application.
+
+### Rationale
+The security of the host hardware and firmware is outside the application's direct control. The system requires a trusted execution foundation and cannot realistically establish security guarantees against malicious hardware and firmware controlling that foundation. Therefore, defending against such attacks is outside the scope of this threat model.
+
+### Alternatives Considered
+Treat the host hardware and firmware as potentially malicious or fully compromised.
+
+### Consequences
+If the host hardware and firmware is compromised, the confidentiality, integrity, and availability guarantees provided by the password manager may no longer hold.
+
+This constraint does not consider stolen or copied storage data as out of scope.
+
+The application should still validate inputs and handle potentially corrupted or malicious data even when operating within a trusted host environment.
+
+
+## DEC-028: Exclude malicious local software/processes from threat model
+**Status:** Accepted
+**Date:** 12/08/2026
+
+### Context
+The application will be running in an environment where other software/processes will be executing.
+
+A decision was required regarding whether the threat model should attempt to defend against potentially malicious behaviour from these other software and processes sharing the local execution environmnet.
+
+### Decision
+The system will assume that other software/processes executing in the same environment do not maliciously obseve, modify, or interfere with the password manager or its runtime data.
+
+Maliciously acting software/processes will be treated as outside the security guarantees of the application.
+
+However, data entering through application interfaces will remain untrusted.
+
+### Rationale
+The behaviours of other software and processes are outside the application's direct control. Software executing with sufficient access to observe, modify, or interfere with the application's runtime could bypass protections from outside the application's own control boundary. Requiring the application to remain secure within an actively hostile local execution environment would therefore substantially expand the system's security model and is outside the scope of this threat model.
+
+### Alternatives Considered
+Treat the executing environment as shared by hostile software/processes.
+
+### Consequences
+If there are maliciously acting software/processes executing in the same environment, the confidentiality, integrity, and availability guarantees provided by the password manager may no longer hold.
+
+This constraint does not consider malicious or corrupted data entering through defined application interfaces, including vault import functionality, to be out of scope.
+
+
+## DEC-029: Trust application/runtime/dependency integrity
+**Status:** Accepted
+**Date:** 12/08/2026
+
+### Context
+The system depends on application code written as part of the project, libraries developed by third parties, and a runtime environment that enables the intended system behaviours.
+
+A decision was required regarding whether the threat model should attempt to defend against potentially malicious tampering with these components of the system.
+
+### Decision
+The application code is assumed not to have been maliciously modified or replaced.
+
+The Python runtime is assumed to be authentic and not maliciously modified.
+
+Software dependencies are assumed to be authentic versions intentionally selected by the project. However, they are not assumed to be free from vulnerabilities.
+
+Therefore malicious modification or replacement of application code, runtime, or dependencies is considered outside the security guarantees of the system.
+
+### Rationale
+The application code, runtime, and selected dependencies form the trusted execution foundation upon which the application's security controls depend.
+
+The application cannot reliably guarantee its own security if components responsible for implementing or verifying those controls are themselves compromised. Self-verifying mechanisms will ultimately depend on some trusted verification mechanism or value that an attacker cannot modify alongside the application.
+
+Therefore, malicious compromise of the trusted execution foundation will be treated as outside the application's security guarantees.
+
+This does not rule out the implementation of integrity or authenticity checks as a defence-in-depth measure to detect modification before a session is launched. Such measures would reduce reliance on this assumption but would not remove the need for an underlying trusted foundation.
+
+### Alternatives Considered
+Treat application code, the runtime, and dependencies as potentially maliciously modified or replaced.
+
+### Consequences
+Security guarantees depend on the application executing with an authentic and untampered application codebase, runtime, and set of intended dependencies.
+
+Malicious replacement or modification of these components will not be treated as an attack the application must defend against.
+
+Known or subsequently discovered vulnerabilities within authentic dependencies are considered a relevant security concern and may require dependency updates or other mitigations.
+
+Data processed by trusted application components are not inherently trusted and will still be treated according to the threat model's input and integrity assumptions.
+
+
+
 ## DEC-xxx:
 **Status:**
 **Date:**
