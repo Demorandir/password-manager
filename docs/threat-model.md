@@ -227,17 +227,22 @@ The security of the system must therefore not rely on secrecy of its design or i
 - Possession of the protected vault does not initially provide the attacker with its decrypted contents or the user's authentication secrets.
 
 
-### Remote Attacker Interacting with the User Without Host Access
+### Remote Attacker with User-Mediated Interaction
 #### Capabilities
+- Can communicate directly with the user.
+- Can use social engineering to attempt to obtain the user's authentication secrets.
+- Can use social engineering to attempt to induce the user to disclose sensitive information or perform security-relevant application actions.
+- Can provide crafted or malicious vault files to the user and attempt to convince the user to import them into the application.
+- Can attempt to persuade the user to disclose or transfer a protected vault/export to them. Once the attacker obtains the file, subsequent offline analysis is modelled under the Opportunistic Attacker with Access to a Vault Copy profile.
+
 #### Access Level / Preconditions
+- Attacker has a communication channel with the user.
+- Attacker does not initially have physical or remote access to the application's host or the application executing inside it.
+
 #### Limitations
-
-
-### 
-#### Capabilities
-#### Access Level / Preconditions
-#### Limitations
-
+- Attacker cannot directly interact with the application or its local interfaces. Application input from the attacker must cross the trust boundary through actions performed by the legitimate user.
+- Attacker cannot directly access the host filesystem, application memory, or vault data.
+- Attacker does not control trusted host components or local processes. If the attacker gains this level of control, the trusted execution environment has been compromised and the resulting scenario falls outside the security guarantees of the application.
 
 
 ## Attack Surfaces
