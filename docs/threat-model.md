@@ -183,30 +183,47 @@ The security of the system must therefore not rely on secrecy of its design or i
 ## Threat Actors and Capabilities
 
 ### Local Person with Physical Access
-#### Motivation
 #### Capabilities
-#### Access Level
+- Can interact with the application through the local user interface.
+- Can access files made available to the local user by the trusted host operating system and filesystem permissions.
+- Can perform direct social engineering against the intended user.
+- Can observe the user or display in an attempt to obtain authentication secrets, stored credentials, secure-note contents, or other sensitive information visible through the interface.
+- Can steal host hardware ranging from the physical storage containing application data, to the entire host device.
+
+#### Access Level / Preconditions
+**Locked-vault state**
+- Attacker can gain physical access to locked vault files.
+- Attacker does not know authentication secrets.
+- Access to protected vault functionality requires successful authentication.
+
+**Unlocked-vault state**
+- Attacker gains physical access after the legitimate user authenticates to the application, before automatic or manual locking occurs.
+- Attacker can use protected vault functionality made available through the active unlocked application session, including creating, retrieving, updating, and deleting protected vault data. 
+
 #### Limitations
+- Attacker does not initially know the user's authentication secrets when considered in the locked-vault state.
+- Cannot maliciously modify or control the trusted host hardware, firmware, operating system, application runtime, or application code.
+- Cannot rely on malicious local software or processes to observe or interfere with the application.
+- Cannot bypass application security controls by compromising components defined as part of the trusted execution environment.
+- Physical possession of a copied or stolen locked vault does not itself grant access to its protected contents; subsequent offline analysis is modelled under the Opportunistic Attacker with Access to a Vault Copy profile.
 
 
 ### Opportunistic Attacker with Access to a Vault Copy
-#### Motivation
 #### Capabilities
-#### Access Level
+#### Access Level / Preconditions
 #### Limitations
 
 
 ### Remote Attacker Interacting with the User Without Host Access
-#### Motivation
 #### Capabilities
-#### Access Level
+#### Access Level / Preconditions
 #### Limitations
 
 
 ### 
-#### Motivation
 #### Capabilities
-#### Access Level
+#### Access Level / Preconditions
+#### Limitations
 
 
 
