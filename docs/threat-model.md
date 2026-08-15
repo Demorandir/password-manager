@@ -79,6 +79,8 @@ The vault is the protected collection of credential records, secure notes, secur
 
 - Exported vault copies require equivalent protection to that of the active vault. This is because an exported copy may exist outside of the application's normal environment. An attacker in possession of an exported vault copy may attempt to compromise its protection offline via resources of their choosing.
 
+- Export operations should not weaken or alter the active vault or its security protections merely as a side effect of the artefact's creation.
+
 - Imported vaults originate from outside of the application's current trusted state, thus they must be treated as potentially invalid, corrupted, or tampered with, until their validity and integrity have been established.
 
 
@@ -246,6 +248,107 @@ The security of the system must therefore not rely on secrecy of its design or i
 
 
 ## Attack Surfaces
+
+### Vault files and filesystem interaction
+**Description**
+The application will interact with persistent data files held in local storage, which can include configuration files, log files, and vault files. The application will need to handle states where these files may be missing, replaced, or corrupted, both during and between application sessions. The application will also need to read and write to these files.
+
+**Entry Point**
+- Vault storage file paths.
+- Configuration and settings file paths.
+- Audit and diagnostic log file paths.
+
+**Relevant Threat Actors**
+- Local Person with Physical Access.
+- Remote Attacker with User-Mediated Interaction.
+
+**Assets Potentially Exposed**
+- Vault files.
+- Application settings files.
+- Audit and diagnostic logs.
+
+**Security Relevance**
+The host filesystem is treated as part of the foundation of trust and is assumed to operate as intended. This does not guarantee the existence, integrity, or confidentiality of individual application files, nor does it prevent those files from being deleted, replaced, corrupted, or copied.
+
+Therefore, the application must handle unexpected persistent-file states without assuming that files are valid solely because they exist at an expected location.
+
+Modification, deletion, or replacement of persistent files may affect the integrity or availability of vault data and application configuration. Copies of protected vault files may also expose the vault to subsequent offline attacks.
+
+A remote attacker cannot directly interact with the local storage, but may attempt to influence user actions such as file replacement or deletion through social engineering.
+
+
+### Vault Import Interface
+**Description**
+The vault import functionality allows externally supplied vault files to enter the application and be processed within the trusted application environment.
+
+**Entry Point**
+- A vault file selected by the user for import.
+
+**Relevant Threat Actors**
+- Remote Attacker with User-Mediated Interaction.
+- Local Person with Physical Access.
+
+**Assets Potentially Exposed**
+- Imported vault and its protected data
+- Current vault and its protected data.
+
+**Security Relevance**
+Imported vault files originate externally and have not yet had their validity or integrity established. They could be malformed, corrupted, or deliberately crafted. Therefore, the application must not assume the imported file to be valid or trustworthy solely because the user selected it.
+
+The specific parsing, validation, and storage components exposed by this interface will be updated as system architecture develops.
+
+
+### Vault Export Interface
+**Description**
+The vault export functionality creates a portable representation of the active vault intended for later import by another application session, either in the same host environment or a different one.
+
+**Entry Point**
+- User-initiated export action.
+- File path or selected filename for export target.
+
+**Relevant Threat Actors**
+- Remote Attacker with User-Mediated Interaction.
+- Local Person with Physical Access.
+
+**Assets Potentially Exposed**
+- Active vault and its protected data.
+- Exported vault and its protected data.
+
+**Security Relevance**
+Once exported, the application no longer controls where the vault file is stored, how many copies are made, how long it is retained, or who has possession of it.
+
+Therefore, the exported vault file must retain appropriate protections independently of the environment into which it is exported.
+
+A remote attacker cannot directly interact with the export interface, but may attempt to influence user actions to obtain an exported vault file through social engineering. If this occurs, subsequent interaction with the acquired vault is modelled under the 'Opportunistic Attacker with Access to a Vault Copy' profile.
+
+### GUI Interfaces
+**Description**
+The application will comprise graphical interfaces through which the user can interact with the system, supply data, initiate actions, and receive application output.
+
+**Entry Point**
+- Interactive GUI elements through which input can be supplied or application actions initiated.
+
+**Relevant Threat Actors**
+- Local Person with Physical Access.
+- Remote Attacker with User-Mediated Interaction.
+
+**Assets Potentially Exposed**
+- Authentication secrets.
+- Protected vault data, including credentials and secure-note contents.
+- Application settings.
+- Audit and diagnostic records.
+
+**Security Relevance**
+The GUI forms a primary boundary through which user-controlled input enters the application and sensitive information may be presented to the user.
+
+Input supplied through GUI elements must not inherently be assumed to be valid or benign and may affect security-sensitive application behaviours, including authentication and modification of protected vault contents.
+
+The GUI may also expose sensitive information through the display during authentication processes, and while an unlocked vault session is active. A person with physical access may therefore be able to observe or interact with functionality available through an existing unlocked vault session.
+
+A remote attacker cannot directly interact with the GUI under the current threat model, but may attempt to influence application input or user actions through social engineering.
+
+Specific threats associated with individual GUI inputs and actions will be updated as the system architecture develops.
+
 
 ## Threats
 
