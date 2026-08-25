@@ -352,7 +352,38 @@ Specific threats associated with individual GUI inputs and actions will be updat
 
 ## Threats
 
-## Mitigations and Requirement Tracability
+### THR-001: Authentication Secret Disclosure Through Visual Observation
+**Threat Actors:**
+- Local Person with Physical Access.
+
+**Attack Surfaces:**
+- GUI Interfaces.
+
+**Preconditions:**
+- The legitimate user is supplying an authentication secret through the application GUI.
+- The attacker is physically positioned to observe the user's authentication interaction.
+
+**Threat Scenario:**
+Whilst the legitimate user supplies an authentication secret, the attacker visually observes and obtains enough information to discern or reconstruct the secret.
+
+**Affected Assets and Security Properties:**
+- Master Password / Authentication Secrets - Confidentiality
+
+**Downstream Effects:**
+- If the attacker subsequently uses the disclosed authentication secret to authenticate to the associated vault, they may gain unauthorised access to vault functionality, enabling disclosure, modification, or deletion of protected vault data.
+
+
+
+### THR-000: 
+**Threat Actors:**
+**Attack Surfaces:**
+**Preconditions:**
+**Threat Scenario:**
+**Assets/Security Properties Affected:**
+**Downstream Effects:**
+
+
+## Mitigations and Requirement Traceability
 
 ## Out-of-Scope Threats
 
